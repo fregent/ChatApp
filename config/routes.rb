@@ -13,4 +13,7 @@ Rails.application.routes.draw do
     # Nested routes for Messages under a User
     resources :messages
   end
+
+  post '/token', to: 'tokens#create'
+
 end

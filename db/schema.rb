@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_22_200221) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_22_214501) do
   create_table "messages", force: :cascade do |t|
     t.text "content", null: false
     t.integer "user_id", null: false
@@ -20,9 +20,11 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_22_200221) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "auth_token"
+    t.index ["auth_token"], name: "index_users_on_auth_token", unique: true
   end
 
   add_foreign_key "messages", "users"
