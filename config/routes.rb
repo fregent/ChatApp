@@ -9,11 +9,8 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   # Routes for User
-  resources :users do
-    # Nested routes for Messages under a User
-    resources :messages
-  end
-
+  resources :users, only: [:index, :show]
   post '/token', to: 'tokens#create'
 
+  resources :messages, only: [:index, :show, :create]
 end
