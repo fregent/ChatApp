@@ -7,4 +7,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  # Routes for User
+  resources :users do
+    # Nested routes for Messages under a User
+    resources :messages
+  end
 end
